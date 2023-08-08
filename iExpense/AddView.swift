@@ -14,10 +14,17 @@ struct AddView: View {
     @State private var name = ""
     @State private var type = "Personal"
     @State private var amount = 0.0
+    @State private var currency = "USD"
+    
+    @State private var hasFieldsBeenOmitted = false
+    
+    @AppStorage("defaultCurrency") private var defaultCurrency = "USD"
     
     @Environment(\.dismiss) var dismiss
     
     let types = ["Business", "Personal"]
+    
+    let currencies = NSLocale.isoCurrencyCodes
     
     var body: some View {
         NavigationStack {
@@ -30,18 +37,49 @@ struct AddView: View {
                     }
                 }
                 
-                TextField("Amount", value: $amount, format: .currency(code: "USD"))
+                Picker("Currency", selection: $currency) {
+                    ForEach(currencies, id:\.self){
+                        Text($0)
+                    }
+                }
+                
+                TextField("Amount", value: $amount, format: .currency(code: currency))
                     .keyboardType(.decimalPad)
             }
             .navigationTitle("Add new expense")
             .toolbar {
+                Picker("Default Currency", selection: $defaultCurrency){
+                    ForEach(currencies, id:\.self){
+                        Text($0)
+                    }
+                }
+                .onChange(of: defaultCurrency) { _ in
+                    currency = defaultCurrency
+                }
+                
                 Button("Save") {
-                    let item = ExpenseItem(name: name, type: type, amount: amount)
-                    expenses.items.append(item)
-                    dismiss()
+                    saveItem()
                 }
             }
         }
+        .onAppear {
+            currency = defaultCurrency
+        }
+        .alert("You have incomplete information", isPresented: $hasFieldsBeenOmitted){
+            Button("OK", role: .cancel){ }
+        } message: {
+            Text("Please make sure you've filled out the name and the amount of the expense")
+        }
+    }
+    
+    func saveItem() {
+        if name.isEmpty || amount == 0{
+            hasFieldsBeenOmitted = true
+            return
+        }
+        let item = ExpenseItem(name: name, type: type, amount: amount, currency: currency)
+        expenses.items.append(item)
+        dismiss()
     }
 }
 

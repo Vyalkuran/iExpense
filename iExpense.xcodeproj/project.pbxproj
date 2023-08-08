@@ -14,6 +14,7 @@
 		B688CF472A816DA20074DA31 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B688CF462A816DA20074DA31 /* ExpenseItem.swift */; };
 		B688CF492A816DDA0074DA31 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B688CF482A816DDA0074DA31 /* Expenses.swift */; };
 		B688CF4B2A8171520074DA31 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B688CF4A2A8171520074DA31 /* AddView.swift */; };
+		B688CF4D2A8259DC0074DA31 /* ExpensesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B688CF4C2A8259DC0074DA31 /* ExpensesSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		B688CF462A816DA20074DA31 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		B688CF482A816DDA0074DA31 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		B688CF4A2A8171520074DA31 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		B688CF4C2A8259DC0074DA31 /* ExpensesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				B688CF482A816DDA0074DA31 /* Expenses.swift */,
 				B688CF3C2A814AB50074DA31 /* Assets.xcassets */,
 				B688CF3E2A814AB50074DA31 /* Preview Content */,
+				B688CF4C2A8259DC0074DA31 /* ExpensesSection.swift */,
 			);
 			path = iExpense;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B688CF4D2A8259DC0074DA31 /* ExpensesSection.swift in Sources */,
 				B688CF492A816DDA0074DA31 /* Expenses.swift in Sources */,
 				B688CF3B2A814AB30074DA31 /* ContentView.swift in Sources */,
 				B688CF4B2A8171520074DA31 /* AddView.swift in Sources */,
